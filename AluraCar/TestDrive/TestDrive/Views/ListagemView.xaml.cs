@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using TestDrive.Entidades;
 
-namespace TestDrive
+
+namespace TestDrive.Views
 {
-	public partial class MainPage : ContentPage
+	public partial class ListagemView : ContentPage
 	{
 
         public List<Automovel> Lista { get; set; }
 
-        public MainPage()
+        public ListagemView()
 		{
 			InitializeComponent();
 
@@ -29,10 +30,19 @@ namespace TestDrive
             BindingContext = this.BindingContext; 
           
 
-
-            
         }
 
-      
+        private void LtVeiculos_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+
+            var veiculo = e.Item as Automovel;
+            
+
+            Navigation.PushAsync(new DetalheView());
+
+
+
+        }
     }
 }
