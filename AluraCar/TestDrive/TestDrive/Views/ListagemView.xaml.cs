@@ -39,7 +39,7 @@ namespace TestDrive.Views
             var veiculo = e.Item as Automovel;
             
 
-            Navigation.PushAsync(new DetalheView());
+            Navigation.PushAsync(new DetalheView(veiculo));
 
 
 

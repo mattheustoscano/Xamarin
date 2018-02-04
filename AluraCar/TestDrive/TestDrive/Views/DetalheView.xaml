@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TestDrive.Views.DetalheView">
+             x:Class="TestDrive.Views.DetalheView"
+             Title="{Binding Automovel.Nome}">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+
+        <StackLayout Padding="25">
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Acessórios">
+                        <SwitchCell Text="{Binding TextoFreioAbs, Mode=TwoWay}" On="{Binding TemFreioAbs, Mode=TwoWay}" />
+                        <SwitchCell Text="{Binding TextoArCondicionado, Mode=TwoWay}" On="{Binding TemArCondicionado, Mode=TwoWay}"/>
+                            <SwitchCell Text="{Binding TextoMP3, Mode=TwoWay}" On="{Binding TemMp3Player, Mode=TwoWay}"/>
+
+                        <TextCell Text="{Binding ValorTotal, Mode=TwoWay}"/>
+
+                    </TableSection>
+                   
+                </TableRoot>
+            </TableView>
+
+            <Button x:Name="btnProximo" Margin="25" Text="Próximo" VerticalOptions="End" 
+                    Clicked="btnProximo_Clicked"/>
         </StackLayout>
+        
+        
+
+      
     </ContentPage.Content>
 </ContentPage>
